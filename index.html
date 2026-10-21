@@ -8,19 +8,19 @@
   <meta name="description" content="Terapia online con psicólogos verificados en México, desde tu casa y a un precio accesible. Escríbenos por WhatsApp y te acompañamos a dar el primer paso." />
 
   <!-- Vista previa al compartir (WhatsApp, Facebook, X, LinkedIn).
-       ⚠️ Cuando tengan dominio propio, cambiar SITIO por la URL final (ej. https://claritia.mx/). -->
+       ⚠️ Si cambian a dominio propio, reemplazar https://zuba213213.github.io/Claritiawebsite/ por la URL final en las 4 páginas. -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_MX" />
   <meta property="og:site_name" content="claritia" />
   <meta property="og:title" content="claritia — Terapia Clínica Online" />
   <meta property="og:description" content="No tienes que tener todo claro para empezar. Psicólogos verificados, desde tu casa. Escríbenos por WhatsApp." />
-  <meta property="og:url" content="https://zuba213213.github.io/Claritia/website/" />
-  <meta property="og:image" content="https://zuba213213.github.io/Claritia/website/assets/og-claritia.jpg" />
+  <meta property="og:url" content="https://zuba213213.github.io/Claritiawebsite/" />
+  <meta property="og:image" content="https://zuba213213.github.io/Claritiawebsite/assets/og-claritia.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="claritia — Terapia Clínica Online. No tienes que tener todo claro para empezar." />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://zuba213213.github.io/Claritia/website/" />
+  <link rel="canonical" href="https://zuba213213.github.io/Claritiawebsite/" />
 
   <meta name="theme-color" content="#F8F8FA" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -66,8 +66,8 @@
       <li><a href="#precio">Precio</a></li>
       <li><a href="#preguntas">Preguntas</a></li>
     </ul>
-    <a class="btn btn-primary btn-sm" data-wa="general" href="#" aria-label="Escríbenos por WhatsApp">
-      <svg class="i i-wa"><use href="#wa"/></svg><span>Escríbenos</span>
+    <a class="btn btn-primary btn-sm" data-wa="talk" href="#" aria-label="Habla con alguien por WhatsApp">
+      <svg class="i i-wa"><use href="#wa"/></svg><span>Habla con alguien</span>
     </a>
   </div>
 </header>
@@ -84,7 +84,7 @@
         <h1 data-words>No tienes que tener todo claro para empezar.</h1>
         <p class="hero-sub">Muchas personas que hoy están en proceso sintieron exactamente lo mismo al inicio. Solo hace falta dar un paso — y puede ser tan pequeño como un mensaje.</p>
         <div class="btn-row">
-          <a class="btn btn-primary" data-wa="general" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Escríbenos por WhatsApp</a>
+          <a class="btn btn-primary" data-wa="talk" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Habla con alguien hoy</a>
           <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
         </div>
         <div class="hero-assure">
@@ -270,7 +270,7 @@
       <span class="label">Cómo funciona</span>
       <h2 style="margin-bottom:1rem">El primer paso es más fácil de lo que crees.</h2>
       <p>No necesitas prepararte, ni saber exactamente qué decir. Todo empieza con un mensaje por WhatsApp — de ahí en adelante, te acompañamos.</p>
-      <a class="btn btn-primary" data-wa="general" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Escríbenos</a>
+      <a class="btn btn-primary" data-wa="start" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Empieza cuando quieras</a>
 
       <!-- VIDEO 2 — "Cómo funciona por WhatsApp". Póster: img/v2-como-funciona.webp · Video: CONFIG.videos.comoFunciona -->
       <figure class="media video" data-scene="person-talk" data-video="comoFunciona">
@@ -347,7 +347,7 @@
 
 
 <!-- ═══════════════════ CON QUIÉN VAS A HABLAR ═══════════════════ -->
-<section class="section" id="psicologos" style="padding-top:0">
+<section class="section" id="psicologos" style="padding-top:0" data-fab-label="Agenda con alguien del equipo" data-fab-msg="team">
   <div class="wrap">
     <div class="section-head center rv">
       <span class="label">Con quién vas a hablar</span>
@@ -391,7 +391,7 @@
 
 
 <!-- ═══════════════════ PRECIO ═══════════════════ -->
-<section class="section" id="precio" style="padding-top:clamp(1rem,4vw,3rem)">
+<section class="section" id="precio" style="padding-top:clamp(1rem,4vw,3rem)" data-fab="hide">
   <div class="wrap price-grid">
     <div class="price-copy rv">
       <span class="label">Precio</span>
@@ -424,7 +424,7 @@
 
 
 <!-- ═══════════════════ PREGUNTAS ═══════════════════ -->
-<section class="section" id="preguntas" style="padding-top:clamp(1rem,4vw,3rem)">
+<section class="section" id="preguntas" style="padding-top:clamp(1rem,4vw,3rem)" data-fab-label="¿Dudas? Escríbenos" data-fab-msg="question">
   <div class="wrap">
     <div class="section-head center rv">
       <span class="label">Preguntas frecuentes</span>
@@ -476,6 +476,11 @@
       </div>
     </div>
 
+    <div class="faq-cta rv" data-fab="hide">
+      <p>¿Tu pregunta no está aquí?</p>
+      <a class="btn btn-ghost" data-wa="question" href="#"><svg class="i i-wa"><use href="#wa"/></svg>¿Otra duda? Escríbenos</a>
+    </div>
+
     <div class="care-note rv" role="note">
       <svg class="i"><use href="#leaf"/></svg>
       <div>
@@ -491,7 +496,7 @@
 
 
 <!-- ═══════════════════ CIERRE ═══════════════════ -->
-<section class="closing" id="empieza">
+<section class="closing" id="empieza" data-fab="hide">
   <div class="closing-panel">
     <!-- FOTO 11 — img/11-cierre.webp (16:9) -->
     <figure class="media dark" data-scene="exhale">
@@ -534,8 +539,8 @@
   </div>
 </footer>
 
-<a class="wa-float" id="wa-float" data-wa="general" href="#" aria-label="Escríbenos por WhatsApp">
-  <svg class="i i-wa"><use href="#wa"/></svg>Escríbenos
+<a class="wa-float" id="wa-float" data-wa="book" href="#" aria-label="Agenda tu sesión por WhatsApp">
+  <svg class="i i-wa"><use href="#wa"/></svg><span class="fab-label">Agenda tu sesión</span>
 </a>
 
 <script src="assets/claritia.js" defer></script>

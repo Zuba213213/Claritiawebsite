@@ -13,10 +13,18 @@ const CONFIG = {
   priceNote: "Sin costos ocultos. Pagas por sesión.",
 
   // Mensajes que aparecen ya escritos al abrir WhatsApp
+  // Cada botón abre WhatsApp con su propio mensaje: así Dani sabe qué busca la persona
+  // y, con la medición activa, se ve qué botón trae más conversaciones.
   messages: {
-    general: "Hola, me gustaría empezar con claritia.",
-    price:   "Hola, me gustaría saber el precio de las sesiones.",
-    unsure:  "Hola, no sé bien por dónde empezar."
+    general:  "Hola, me gustaría empezar con claritia.",          // Cierre: "Escríbenos. Solo eso." · Contacto
+    talk:     "Hola, me gustaría hablar con alguien.",            // Barra superior · Hero
+    start:    "Hola, quiero dar el primer paso.",                 // Cómo funciona
+    book:     "Hola, me gustaría agendar mi primera sesión.",     // Botón flotante
+    team:     "Hola, me gustaría agendar una sesión con alguien del equipo.", // Botón flotante en la sección de equipo
+    price:    "Hola, me gustaría saber el precio de las sesiones.",// Precio: "Preguntar por WhatsApp"
+    question: "Hola, tengo una pregunta antes de empezar.",       // Preguntas frecuentes
+    unsure:   "Hola, no sé bien por dónde empezar.",              // "Cuéntanos con tus palabras"
+    choose:   "Hola, no sé a quién elegir. ¿Me orientan?"         // Página de equipo: "Ayúdame a elegir"
   },
 
   // Videos explicativos: ID de YouTube (lo que va después de "v=" en el enlace). Vacío = placeholder.
@@ -58,14 +66,13 @@ const CONFIG = {
   const wireWA = scope => scope.querySelectorAll('[data-wa]').forEach(a => {
     if (a.dataset.waWired) return;
     a.dataset.waWired = '1';
-    const text = a.dataset.waText || msgFor(a.dataset.wa);
-    a.href = waLink(text);
+    a.href = waLink(a.dataset.waText || msgFor(a.dataset.wa));
     a.target = '_blank';
     a.rel = 'noopener';
     a.addEventListener('click', e => {
       if (!desktop()) return;              // en celular abre WhatsApp directo
       e.preventDefault();
-      openQR(text);
+      openQR(a.dataset.waText || msgFor(a.dataset.wa));   // se lee al dar clic (el botón flotante cambia)
     });
   });
   if (!waNumber) console.warn('[claritia] Falta CONFIG.whatsapp — los botones y el QR usan un enlace de ejemplo.');
@@ -198,7 +205,7 @@ const CONFIG = {
         <p>${m.approach ? esc(m.approach) : '<span class="pending">[Enfoque, p. ej. terapia cognitivo-conductual]</span>'}</p>
         <div class="tags">${m.specs.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>
         <p style="font-style:italic">${m.quote ? '“' + esc(m.quote) + '”' : '<span class="pending">[Una frase en sus propias palabras]</span>'}</p>
-        <a class="btn btn-primary" data-wa="general" data-wa-text="${esc('Hola, me gustaría agendar una sesión con ' + (m.name || 'esta psicóloga o psicólogo') + '.')}" href="#"><svg class="i i-wa"><use href="#wa"/></svg>Agendar por WhatsApp</a>
+        <a class="btn btn-primary" data-wa="team" data-wa-text="${esc('Hola, me gustaría agendar una sesión con ' + (m.name || 'esta psicóloga o psicólogo') + '.')}" href="#"><svg class="i i-wa"><use href="#wa"/></svg>Agenda con ${m.name ? esc(m.name.split(' ')[0]) : '<span class="pending">[Nombre]</span>'}</a>
       </div>
     </article>`;
   document.querySelectorAll('[data-team]').forEach(grid => {
@@ -271,18 +278,32 @@ const CONFIG = {
   const nav = document.getElementById('nav');
   const fab = document.getElementById('wa-float');
   const hero = document.querySelector('.hero-panel, .page-hero');
-  const closing = document.getElementById('empieza');
+  const fabLabel = fab && fab.querySelector('.fab-label');
+  const fabDefault = fab ? { label: fabLabel ? fabLabel.textContent : '', key: fab.dataset.wa } : null;
+  const fabZones = [...document.querySelectorAll('[data-fab], [data-fab-label]')];
   if (nav) tasks.push({
     active: () => true,
     read: () => ({
       y: window.scrollY,
       heroBottom: hero ? hero.getBoundingClientRect().bottom : 0,
-      closingTop: closing ? closing.getBoundingClientRect().top : Infinity,
+      zone: fabZones.filter(z => { const r = z.getBoundingClientRect(); return r.top < window.innerHeight * .7 && r.bottom > window.innerHeight * .4; }).pop(), // la más interna gana
       vh: window.innerHeight
     }),
     write: d => {
       nav.classList.toggle('scrolled', d.y > 20);
-      if (fab) fab.classList.toggle('show', d.heroBottom < 80 && d.closingTop > d.vh * .7);
+      if (!fab) return;
+      // Botón flotante dinámico: cambia de texto según la sección y se oculta donde ya hay un botón propio
+      const z = d.zone;
+      const hide = z && z.dataset.fab === 'hide';
+      fab.classList.toggle('show', d.heroBottom < 80 && !hide);
+      const label = (z && z.dataset.fabLabel) || fabDefault.label;
+      const key = (z && z.dataset.fabMsg) || fabDefault.key;
+      if (fabLabel && fabLabel.textContent !== label) {
+        fabLabel.textContent = label;
+        fab.setAttribute('aria-label', label + ' por WhatsApp');
+        fab.dataset.wa = key;
+        fab.href = waLink(msgFor(key));
+      }
     }
   });
   schedule();
