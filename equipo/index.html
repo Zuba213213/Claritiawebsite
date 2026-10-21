@@ -45,25 +45,41 @@
   <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
 </svg>
 
+<a class="skip" href="#main">Saltar al contenido</a>
 <header class="nav" id="nav">
-  <div class="wrap">
+  <div class="wrap nav-bar">
     <a href="../" class="logo">
-      <img class="logo-img" src="../assets/brand/logo-horizontal.webp" alt="claritia — Terapia Clínica Online" width="794" height="96" />
+      <img class="logo-img" src="../assets/brand/logo-horizontal.webp" alt="claritia, Terapia Clínica Online — inicio" width="794" height="96" />
     </a>
-    <ul class="nav-links">
-      <li><a href="../#que-es">Qué es</a></li>
-      <li><a href="../#como-funciona">Cómo funciona</a></li>
-      <li><a href="../equipo/">Equipo</a></li>
-      <li><a href="../#precio">Precio</a></li>
-      <li><a href="../#preguntas">Preguntas</a></li>
-    </ul>
-    <a class="btn btn-primary btn-sm" data-wa="talk" href="#" aria-label="Habla con alguien por WhatsApp">
-      <svg class="i i-wa"><use href="#wa"/></svg><span>Habla con alguien</span>
-    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="../#que-es">Qué es</a>
+      <a href="../#como-funciona">Cómo funciona</a>
+      <a href="../equipo/" aria-current="page">Equipo</a>
+      <a href="../#precio">Precio</a>
+      <a href="../#preguntas">Preguntas</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" data-wa="talk" href="#" aria-label="Habla con alguien por WhatsApp">
+        <svg class="i i-wa" aria-hidden="true"><use href="#wa"/></svg><span>Habla con alguien</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-menu" id="nav-menu" hidden>
+    <nav aria-label="Menú">
+      <a class="m" href="../#que-es">Qué es<svg class="i" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a class="m" href="../#como-funciona">Cómo funciona<svg class="i" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a class="m" href="../equipo/" aria-current="page">Equipo<svg class="i" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a class="m" href="../#precio">Precio<svg class="i" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a class="m" href="../#preguntas">Preguntas<svg class="i" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </nav>
+    <a class="btn btn-primary" data-wa="talk" href="#"><svg class="i i-wa" aria-hidden="true"><use href="#wa"/></svg>Habla con alguien por WhatsApp</a>
   </div>
 </header>
 
-<main>
+<main id="main">
 <section class="page-hero">
   <div class="wrap">
     <p class="crumbs"><a href="../">Inicio</a> / Equipo</p>

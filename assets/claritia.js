@@ -308,6 +308,37 @@ const CONFIG = {
   });
   schedule();
 
+  /* ── Menú (tablet y celular) ── */
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    const setMenu = open => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.hidden = !open;
+    };
+    toggle.addEventListener('click', () => setMenu(menu.hidden));
+    menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); toggle.focus(); } });
+    document.addEventListener('click', e => { if (!menu.hidden && !e.target.closest('#nav')) setMenu(false); });
+    window.matchMedia('(min-width: 1200px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  }
+
+  /* ── Sección actual resaltada en el menú ── */
+  const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"], .nav-menu a.m[href^="#"]')];
+  const secIds = [...new Set(navAnchors.map(a => a.getAttribute('href').slice(1)))];
+  const secs = secIds.map(id => document.getElementById(id)).filter(Boolean);
+  if (secs.length) {
+    const mark = id => navAnchors.forEach(a => a.getAttribute('href') === '#' + id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
+    const secIO = new IntersectionObserver(es => {
+      const vis = es.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (vis) mark(vis.target.id);
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    secs.forEach(sec => secIO.observe(sec));
+    const heroEl = document.querySelector('.hero');
+    if (heroEl) new IntersectionObserver(es => { if (es[0].isIntersecting) mark(''); }, { rootMargin: '-45% 0px -50% 0px' }).observe(heroEl);
+  }
+
   /* ── Título del hero palabra por palabra ── */
   const h1 = document.querySelector('[data-words]');
   if (h1 && !reduce) {
