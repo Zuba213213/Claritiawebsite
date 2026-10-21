@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>document.documentElement.classList.add('js')</script>
+  <title>claritia — Terapia Clínica Online en México</title>
+  <meta name="description" content="Terapia online con psicólogos verificados en México, desde tu casa y a un precio accesible. Escríbenos por WhatsApp y te acompañamos a dar el primer paso." />
+
+  <!-- Vista previa al compartir (WhatsApp, Facebook, X, LinkedIn).
+       ⚠️ Cuando tengan dominio propio, cambiar SITIO por la URL final (ej. https://claritia.mx/). -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="claritia" />
+  <meta property="og:title" content="claritia — Terapia Clínica Online" />
+  <meta property="og:description" content="No tienes que tener todo claro para empezar. Psicólogos verificados, desde tu casa. Escríbenos por WhatsApp." />
+  <meta property="og:url" content="https://zuba213213.github.io/Claritia/website/" />
+  <meta property="og:image" content="https://zuba213213.github.io/Claritia/website/assets/og-claritia.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="claritia — Terapia Clínica Online. No tienes que tener todo claro para empezar." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://zuba213213.github.io/Claritia/website/" />
+
+  <meta name="theme-color" content="#F8F8FA" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" href="fonts/dm-serif-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/poppins-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/claritia.css" />
+</head>
+<body>
+
+<!-- Iconos (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="keyhole" viewBox="0 0 24 24"><circle cx="12" cy="9.5" r="3.5"/><path d="M10.5 12.5L9.5 19h5l-1-6.5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="video" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 20.5s-8-4.6-8-10.4A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 3.1c0 5.8-8 10.4-8 10.4z"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></symbol>
+  <symbol id="send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5z"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</svg>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="logo" aria-label="claritia, Terapia Clínica Online — inicio">
+      <span class="logo-cluster" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></span>
+      <span><span class="logo-word">claritia</span><span class="logo-tag">Terapia Clínica Online</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#que-es">Qué es</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="equipo/">Equipo</a></li>
+      <li><a href="#precio">Precio</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" data-wa="general" href="#" aria-label="Escríbenos por WhatsApp">
+      <svg class="i i-wa"><use href="#wa"/></svg><span>Escríbenos</span>
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-panel">
+    <div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="orb o4"></span></div>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><span class="pulse" aria-hidden="true"></span>Terapia clínica online · México</span>
+        <h1 data-words>No tienes que tener todo claro para empezar.</h1>
+        <p class="hero-sub">Muchas personas que hoy están en proceso sintieron exactamente lo mismo al inicio. Solo hace falta dar un paso — y puede ser tan pequeño como un mensaje.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" data-wa="general" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Escríbenos por WhatsApp</a>
+          <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
+        </div>
+        <div class="hero-assure">
+          <span><svg class="i"><use href="#check"/></svg>Sin formularios</span>
+          <span><svg class="i"><use href="#check"/></svg>Psicólogos con cédula profesional</span>
+          <span><svg class="i"><use href="#check"/></svg>Desde tu casa</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- FOTO 01 — Hero. Subir como img/01-hero.webp (vertical 4:5, ~1600 px de alto) -->
+        <figure class="media" data-scene="window-person">
+          <img src="img/01-hero.webp" alt="Mujer junto a una ventana, con su celular en la mano" fetchpriority="high" />
+          <figcaption class="ph-tag"><b>Foto 01</b>Hero · mujer junto a la ventana · 4:5</figcaption>
+        </figure>
+
+        <div class="hero-chip" aria-hidden="true">
+          <span class="dot-ic"><svg class="i"><use href="#user"/></svg></span>
+          La terapia siempre la conduce un psicólogo real.
+        </div>
+
+        <!-- Vista previa de la conversación por WhatsApp -->
+        <div class="phone" aria-label="Ejemplo de cómo empieza una conversación con claritia por WhatsApp" role="img">
+          <div class="phone-screen" aria-hidden="true">
+            <div class="chat-top">
+              <span class="chat-avatar"><span class="logo-cluster"><span class="c1"></span><span class="c2"></span><span class="c3"></span></span></span>
+              <span><span class="chat-name">claritia</span><span class="chat-status" style="display:block">en línea</span></span>
+            </div>
+            <div class="chat-body" id="chat">
+              <div class="msg out">Hola… no sé bien por dónde empezar.<time>21:14</time></div>
+              <div class="msg in"><span class="who">Dani · claritia</span>Hola. Aquí estoy. ¿Cómo te has sentido estos días?<time>21:14</time></div>
+              <div class="msg out">Cansada. Mi mente no para, ni de noche.<time>21:15</time></div>
+              <div class="msg in"><span class="who">Dani · claritia</span>Gracias por contármelo. Te ayudo a encontrar a la psicóloga indicada y un horario que te funcione.<time>21:15</time></div>
+              <div class="typing" id="typing"><i></i><i></i><i></i></div>
+            </div>
+            <div class="chat-input"><div>Escribe un mensaje</div><span><svg class="i" style="width:14px;height:14px"><use href="#send"/></svg></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ LO QUE SE SIENTE (marquee) ═══════════════════ -->
+<section class="feel" aria-labelledby="feel-title">
+  <div class="wrap feel-head">
+    <p id="feel-title">Cosas que muchas personas sienten antes de escribirnos</p>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="chip">Mi mente no para</span><span class="chip">Estoy cansado todo el tiempo</span><span class="chip">No sé con quién hablar</span><span class="chip">Me cuesta dormir</span><span class="chip">Siento que debería poder solo</span><span class="chip">Todo me pesa más que antes</span>
+    </div>
+    <div class="marquee-track">
+      <span class="chip">Mi mente no para</span><span class="chip">Estoy cansado todo el tiempo</span><span class="chip">No sé con quién hablar</span><span class="chip">Me cuesta dormir</span><span class="chip">Siento que debería poder solo</span><span class="chip">Todo me pesa más que antes</span>
+    </div>
+  </div>
+  <div class="marquee rev" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="chip">“Tampoco es para tanto”… ¿o sí?</span><span class="chip">No logro desconectarme del trabajo</span><span class="chip">Necesito hablar con alguien</span><span class="chip">Reviso todo dos veces</span><span class="chip">Me siento desconectada</span><span class="chip">Llevo mucho tiempo con esto</span>
+    </div>
+    <div class="marquee-track">
+      <span class="chip">“Tampoco es para tanto”… ¿o sí?</span><span class="chip">No logro desconectarme del trabajo</span><span class="chip">Necesito hablar con alguien</span><span class="chip">Reviso todo dos veces</span><span class="chip">Me siento desconectada</span><span class="chip">Llevo mucho tiempo con esto</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ QUÉ ES CLARITIA ═══════════════════ -->
+<section class="section" id="que-es">
+  <div class="wrap what">
+    <div class="what-copy rv">
+      <span class="label">Qué es claritia</span>
+      <h2 style="margin-bottom:1.3rem">A veces solo necesitas hablar con alguien de verdad.</h2>
+      <p>No hace falta llegar a un punto límite para buscar apoyo. Si algo te pesa, si tu mente no para, si sientes que cargas con demasiado — eso es suficiente razón para empezar.</p>
+      <p>claritia conecta a personas como tú con psicólogos verificados, de forma completamente online, a un precio que no se convierte en otra preocupación más.</p>
+      <div class="pills">
+        <span class="pill">Sin desplazamientos</span>
+        <span class="pill">Sin juicios</span>
+        <span class="pill">Sin listas de espera</span>
+        <span class="pill">Con psicólogos reales</span>
+      </div>
+
+      <!-- VIDEO 1 — "¿Qué es claritia?" (fundadora a cámara). Póster: img/v1-que-es.webp · Video: CONFIG.videos.queEs -->
+      <div class="what-video">
+        <figure class="media video" data-scene="person-talk" data-video="queEs">
+          <img src="img/v1-que-es.webp" alt="" loading="lazy" />
+          <button class="play" type="button" aria-label="Reproducir video: ¿Qué es claritia?"><svg class="i"><use href="#play"/></svg></button>
+          <figcaption class="ph-tag"><b>Video 1</b>¿Qué es claritia? · fundadora a cámara · 16:9</figcaption>
+        </figure>
+        <div class="video-meta"><span><b>¿Qué es claritia?</b> — en palabras de quien la fundó</span><span>1:15</span></div>
+      </div>
+    </div>
+
+    <div class="bento">
+      <article class="tile wide photo rv d1">
+        <!-- FOTO 03 — img/03-desde-casa.webp (4:3) -->
+        <figure class="media warm" data-scene="laptop">
+          <img src="img/03-desde-casa.webp" alt="Persona en videollamada desde la mesa de su cocina" loading="lazy" />
+          <figcaption class="ph-tag"><b>Foto 03</b>Videollamada desde casa · 4:3</figcaption>
+        </figure>
+        <div class="tile-copy">
+          <h3>Desde donde estés</h3>
+          <p>Tu sesión sucede por videollamada — desde casa, la oficina o donde te sientas cómodo. Sin tráfico, sin salas de espera.</p>
+        </div>
+      </article>
+      <article class="tile narrow photo rv d2">
+        <!-- FOTO 04 — img/04-horario.webp (4:5) -->
+        <figure class="media dark" data-scene="lamp">
+          <img src="img/04-horario.webp" alt="Persona escribiendo en su celular por la noche, con luz de lámpara" loading="lazy" />
+          <figcaption class="ph-tag"><b>Foto 04</b>Noche, luz de lámpara · 4:5</figcaption>
+        </figure>
+        <div class="tile-copy">
+          <h3>En tu horario</h3>
+          <p>Se adapta a tu vida, no al revés.</p>
+        </div>
+      </article>
+      <article class="tile half rv d3">
+        <!-- FOTO 05 — img/05-privado.webp (4:3) -->
+        <figure class="media inset" data-scene="door">
+          <img src="img/05-privado.webp" alt="Persona tranquila en su cuarto con audífonos" loading="lazy" />
+          <figcaption class="ph-tag"><b>Foto 05</b>Privado · 4:3</figcaption>
+        </figure>
+        <h3 style="margin-top:0">Privado</h3>
+        <p>Tus sesiones son entre tú y tu psicólogo, con la confidencialidad propia de la práctica profesional.</p>
+      </article>
+      <article class="tile half rv d4">
+        <div class="ic-cluster"><b class="b1"><svg class="i"><use href="#heart"/></svg></b><b class="b2"></b></div>
+        <h3>Humano</h3>
+        <p>Psicólogos reales. Nada de respuestas de plantilla, nada de protocolos fríos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ FRASE (foto de cielo + text reveal) ═══════════════════ -->
+<section class="reveal-quote has-photo" aria-label="Frase">
+  <div class="quote-panel">
+    <!-- FOTO 09 — img/09-cielo.webp (21:9 en escritorio; se recorta solo en celular) -->
+    <figure class="media sky" data-scene="sky">
+      <img src="img/09-cielo.webp" alt="" loading="lazy" />
+      <figcaption class="ph-tag"><b>Foto 09</b>Cielo y nubes por la ventana o en espejo ovalado · 21:9</figcaption>
+    </figure>
+    <div class="wrap">
+      <div class="ic-row" aria-hidden="true">
+        <span class="logo-cluster" style="transform:scale(1.4)"><span class="c1"></span><span class="c2"></span><span class="c3"></span></span>
+      </div>
+      <blockquote id="reveal">Sentirte abrumado no significa que algo está mal contigo. Significa que eres humano.</blockquote>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CONTEXTOS ═══════════════════ -->
+<section class="section" id="acompanamos">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="label">Lo que acompañamos</span>
+      <h2>No hablamos de etiquetas. Hablamos de lo que estás viviendo.</h2>
+      <p>Si te reconoces en alguna de estas experiencias — o en ninguna, pero algo no se siente bien — puedes escribirnos.</p>
+    </div>
+    <div class="contexts">
+      <article class="ctx rv"><span class="num">01</span><h3>Ansiedad</h3><p>La mente que no para. Dificultad para descansar. Revisar todo dos veces.</p></article>
+      <article class="ctx rv d1"><span class="num">02</span><h3>Tristeza y desánimo</h3><p>Falta de energía para cosas que antes importaban. Sentirte lejos de los demás.</p></article>
+      <article class="ctx rv d2"><span class="num">03</span><h3>Agotamiento laboral</h3><p>Un cansancio que no se va con descanso. Dejar de encontrarle sentido a lo que haces.</p></article>
+      <article class="ctx rv d3"><span class="num">04</span><h3>Rupturas y pérdidas</h3><p>Cambios que llegan de golpe y hacen difícil sostener el día a día.</p></article>
+      <article class="ctx rv"><span class="num">05</span><h3>Experiencias del pasado</h3><p>Cosas que pasaron hace tiempo y siguen afectando cómo vives hoy.</p></article>
+      <article class="ctx rv d1"><span class="num">06</span><h3>Maternidad</h3><p>Agotamiento, culpa y emociones que nadie te dijo que llegarían.</p></article>
+      <article class="ctx rv d2"><span class="num">07</span><h3>Sentir que funcionas distinto</h3><p>Llevar toda la vida sintiendo que tu mente va a otro ritmo, sin entender por qué.</p></article>
+      <article class="ctx rv d3"><span class="num">08</span><h3>Duelo y transiciones</h3><p>No estás en crisis, pero necesitas a alguien con quien pensar lo que está cambiando.</p></article>
+    </div>
+    <p class="contexts-foot rv">¿No ves lo tuyo aquí? <a data-wa="unsure" href="#">Cuéntanos con tus palabras</a></p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CÓMO FUNCIONA ═══════════════════ -->
+<div class="steps-wrap">
+<section class="section" id="como-funciona">
+  <div class="wrap steps-layout">
+    <div class="steps-intro rv">
+      <span class="label">Cómo funciona</span>
+      <h2 style="margin-bottom:1rem">El primer paso es más fácil de lo que crees.</h2>
+      <p>No necesitas prepararte, ni saber exactamente qué decir. Todo empieza con un mensaje por WhatsApp — de ahí en adelante, te acompañamos.</p>
+      <a class="btn btn-primary" data-wa="general" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Escríbenos</a>
+
+      <!-- VIDEO 2 — "Cómo funciona por WhatsApp". Póster: img/v2-como-funciona.webp · Video: CONFIG.videos.comoFunciona -->
+      <figure class="media video" data-scene="person-talk" data-video="comoFunciona">
+        <img src="img/v2-como-funciona.webp" alt="" loading="lazy" />
+        <button class="play" type="button" aria-label="Reproducir video: Cómo funciona por WhatsApp"><svg class="i"><use href="#play"/></svg></button>
+        <figcaption class="ph-tag"><b>Video 2</b>Cómo funciona por WhatsApp · coordinación · 16:9</figcaption>
+      </figure>
+    </div>
+
+    <div class="stack">
+      <article class="step" style="--i:0">
+        <div class="step-body">
+          <div class="step-top"><span class="step-num">01</span><span class="step-badge"><svg class="i"><use href="#chat"/></svg>WhatsApp</span></div>
+          <div>
+            <h3>Cuéntanos qué estás viviendo</h3>
+            <p>Escríbenos por WhatsApp. Sin formularios interminables: dinos cómo te sientes, con tus palabras, y te orientamos hacia el psicólogo que mejor puede acompañarte.</p>
+          </div>
+        </div>
+        <!-- FOTO 06 — img/06-escribir.webp (4:3) -->
+        <figure class="media" data-scene="hands-phone">
+          <img src="img/06-escribir.webp" alt="Manos escribiendo un mensaje en el celular" loading="lazy" />
+          <figcaption class="ph-tag"><b>Foto 06</b>Manos escribiendo en el celular · 4:3</figcaption>
+        </figure>
+      </article>
+      <article class="step" style="--i:1">
+        <div class="step-body">
+          <div class="step-top"><span class="step-num">02</span><span class="step-badge"><svg class="i"><use href="#cal"/></svg>Tu horario</span></div>
+          <div>
+            <h3>Elige cuándo conectarte</h3>
+            <p>Ahí mismo, en la conversación, eliges el día y la hora que funcionen para ti. Si algo cambia, reagendas con un mensaje.</p>
+          </div>
+        </div>
+        <!-- FOTO 07 — img/07-agendar.webp (4:3) -->
+        <figure class="media warm" data-scene="glance-phone">
+          <img src="img/07-agendar.webp" alt="Persona revisando su celular entre pendientes, con una pequeña sonrisa" loading="lazy" />
+          <figcaption class="ph-tag"><b>Foto 07</b>Mirando el celular entre pendientes · 4:3</figcaption>
+        </figure>
+      </article>
+      <article class="step" style="--i:2">
+        <div class="step-body">
+          <div class="step-top"><span class="step-num">03</span><span class="step-badge"><svg class="i"><use href="#video"/></svg>Videollamada</span></div>
+          <div>
+            <h3>Habla desde donde estés</h3>
+            <p>Tu primera sesión sucede desde casa, desde la oficina, desde donde quieras. El proceso ya comenzó.</p>
+          </div>
+        </div>
+        <!-- FOTO 08 — img/08-sesion.webp (4:3). El psicólogo NO aparece en cuadro. -->
+        <figure class="media" data-scene="laptop">
+          <img src="img/08-sesion.webp" alt="Persona en una sesión por videollamada, escuchando" loading="lazy" />
+          <figcaption class="ph-tag"><b>Foto 08</b>En sesión, escuchando · 4:3</figcaption>
+        </figure>
+      </article>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<!-- ═══════════════════ POR QUÉ EXISTE CLARITIA (fundadora) ═══════════════════ -->
+<section class="section" id="por-que">
+  <div class="wrap founder">
+    <!-- FOTO F1 — Retrato natural de la fundadora. img/f1-fundadora.webp (4:5) -->
+    <figure class="media warm rv" data-scene="portrait">
+      <img src="img/f1-fundadora.webp" alt="Retrato de la fundadora de claritia" loading="lazy" />
+      <figcaption class="ph-tag"><b>Foto F1</b>Retrato natural de la fundadora · 4:5</figcaption>
+    </figure>
+    <div class="rv d1">
+      <span class="label">Por qué existe claritia</span>
+      <blockquote><span class="pending">[Mensaje de la fundadora, 2–3 frases en sus propias palabras: por qué creó claritia y qué quiere que sienta quien escribe por primera vez.]</span></blockquote>
+      <p class="sig"><b class="pending">[Nombre de la fundadora]</b>Fundadora y directora de claritia</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CON QUIÉN VAS A HABLAR ═══════════════════ -->
+<section class="section" id="psicologos" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head center rv">
+      <span class="label">Con quién vas a hablar</span>
+      <h2>Personas que eligieron esto porque les importa.</h2>
+      <p>Cada psicólogo en claritia pasó por un proceso de selección. Verificamos su cédula profesional, su formación y su capacidad para ofrecer una atención cercana y basada en evidencia.</p>
+    </div>
+
+    <div class="roles">
+      <article class="role ai rv d1">
+        <span class="role-tag"><svg class="i" style="width:14px;height:14px"><use href="#chat"/></svg>Al escribirnos</span>
+        <h3>Dani te da la bienvenida</h3>
+        <p>Dani es el asistente de claritia. Te responde por WhatsApp, te escucha sin prisa y te ayuda con lo práctico.</p>
+        <ul>
+          <li><svg class="i"><use href="#check"/></svg>Te orienta para encontrar al psicólogo indicado</li>
+          <li><svg class="i"><use href="#check"/></svg>Agenda, reagenda y te recuerda tus sesiones</li>
+          <li><svg class="i"><use href="#check"/></svg>Responde dudas sobre precio y horarios</li>
+        </ul>
+      </article>
+      <article class="role human rv d2">
+        <span class="ghost-orb"></span>
+        <span class="role-tag"><svg class="i" style="width:14px;height:14px"><use href="#user"/></svg>En cada sesión</span>
+        <h3>Tu psicólogo conduce la terapia</h3>
+        <p>La terapia la conduce siempre un profesional real. Nunca un bot.</p>
+        <ul>
+          <li><svg class="i"><use href="#check"/></svg>Todas las sesiones, sin excepción</li>
+          <li><svg class="i"><use href="#check"/></svg>Define contigo el enfoque de tu proceso</li>
+          <li><svg class="i"><use href="#check"/></svg>Te acompaña en los momentos difíciles</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Vista previa del equipo: se llena desde CONFIG.team (assets/claritia.js) -->
+    <div class="section-head rv" style="margin:clamp(3.5rem,7vw,5rem) 0 2rem">
+      <span class="label">Conoce al equipo</span>
+      <h2>Algunas de las personas que te pueden acompañar.</h2>
+    </div>
+    <div class="team-grid" data-team="3"></div>
+    <div class="team-more rv"><a class="btn btn-ghost" href="equipo/">Ver todo el equipo <svg class="i"><use href="#arrow"/></svg></a></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ PRECIO ═══════════════════ -->
+<section class="section" id="precio" style="padding-top:clamp(1rem,4vw,3rem)">
+  <div class="wrap price-grid">
+    <div class="price-copy rv">
+      <span class="label">Precio</span>
+      <h2 style="margin-bottom:1.2rem">Un precio pensado para que no sea una barrera.</h2>
+      <p>Porque el acceso al bienestar no debería depender de cuánto ganas. Te decimos el precio de frente, sin letras pequeñas.</p>
+      <p style="margin-top:1rem">No prometemos resultados mágicos. Prometemos acompañarte.</p>
+      <!-- FOTO 10 — img/10-bodegon.webp (4:3) -->
+      <figure class="media warm" data-scene="still">
+        <img src="img/10-bodegon.webp" alt="Celular, taza y planta sobre una mesa" loading="lazy" />
+        <figcaption class="ph-tag"><b>Foto 10</b>Bodegón: celular, taza, planta, textil lavanda · 4:3</figcaption>
+      </figure>
+    </div>
+
+    <div class="price-card rv d2">
+      <div class="price-inner">
+        <span class="price-kicker">Sesión individual online</span>
+        <div class="price-amount" id="price-amount"></div>
+        <p class="price-note" id="price-note"></p>
+        <ul class="price-list">
+          <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>Videollamada con un psicólogo verificado</li>
+          <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>El horario que mejor te funcione</li>
+          <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>Agenda y reagenda por WhatsApp</li>
+          <li><span class="tick"><svg class="i"><use href="#check"/></svg></span>Escribirnos no tiene costo</li>
+        </ul>
+        <a class="btn btn-primary" data-wa="price" href="#"><svg class="i i-wa"><use href="#wa"/></svg>Preguntar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ PREGUNTAS ═══════════════════ -->
+<section class="section" id="preguntas" style="padding-top:clamp(1rem,4vw,3rem)">
+  <div class="wrap">
+    <div class="section-head center rv">
+      <span class="label">Preguntas frecuentes</span>
+      <h2>Lo que muchas personas preguntan antes de empezar.</h2>
+    </div>
+
+    <!-- VIDEO 3 — "Tu primera sesión". Póster: img/v3-primera-sesion.webp · Video: CONFIG.videos.primeraSesion -->
+    <div class="faq rv" style="margin-bottom:2rem;max-width:640px">
+      <figure class="media video" data-scene="person-talk" data-video="primeraSesion">
+        <img src="img/v3-primera-sesion.webp" alt="" loading="lazy" />
+        <button class="play" type="button" aria-label="Reproducir video: Tu primera sesión"><svg class="i"><use href="#play"/></svg></button>
+        <figcaption class="ph-tag"><b>Video 3</b>Tu primera sesión: qué esperar · 16:9</figcaption>
+      </figure>
+      <div class="video-meta"><span><b>Tu primera sesión</b> — qué esperar y qué tener listo</span><span>0:50</span></div>
+    </div>
+
+    <div class="faq">
+      <div class="qa rv">
+        <button aria-expanded="false">¿Necesito saber exactamente qué me pasa para escribir?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>No. Puedes escribir algo tan simple como “hola, no sé por dónde empezar”. A partir de ahí te acompañamos a ponerle palabras y a encontrar al psicólogo indicado.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿Cómo agendo mi primera sesión?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>Todo sucede por WhatsApp. Nos escribes, te orientamos, eliges día y hora, y recibes la confirmación ahí mismo. No necesitas crear una cuenta ni llenar formularios.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿Con quién hablo cuando escribo por WhatsApp?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>Te da la bienvenida Dani, el asistente de claritia, que te ayuda con la orientación, los horarios y las dudas prácticas. La terapia, en cambio, la conduce siempre un psicólogo real en cada sesión.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿Cómo son las sesiones?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>Son por videollamada, desde el lugar donde te sientas cómodo. Solo necesitas un teléfono o computadora con internet y un espacio donde puedas hablar con tranquilidad.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿Atienden fuera de México?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>Por ahora acompañamos a personas que viven en México. Si estás en otro país, escríbenos y te avisamos cuando lleguemos.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿Puedo cambiar el horario de mi sesión?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>Sí. Si algo cambia, nos escribes por WhatsApp y te ayudamos a reagendar sin complicaciones.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿Lo que comparto es privado?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>Tus sesiones son entre tú y tu psicólogo, y se manejan con la confidencialidad propia de la práctica profesional. Puedes consultar los detalles en nuestro <a href="privacidad/">aviso de privacidad</a>.</p></div></div>
+      </div>
+      <div class="qa rv">
+        <button aria-expanded="false">¿claritia es para cualquier situación?<span class="plus"><svg class="i"><use href="#plus"/></svg></span></button>
+        <div class="qa-body"><div><p>claritia acompaña procesos de terapia online. Si lo que necesitas es atención presencial, de urgencia o manejo de medicación, te lo diremos con honestidad y te orientaremos hacia el apoyo adecuado.</p></div></div>
+      </div>
+    </div>
+
+    <div class="care-note rv" role="note">
+      <svg class="i"><use href="#leaf"/></svg>
+      <div>
+        <p><strong>Si estás en peligro o en una emergencia,</strong> no esperes: llama al <a href="tel:911">911</a>. Si necesitas hablar con alguien ahora mismo, la <strong>Línea de la Vida</strong> atiende gratis las 24 horas, todos los días. claritia no es un servicio de emergencias.</p>
+        <div class="help-lines">
+          <a href="tel:911"><svg class="i"><use href="#phone"/></svg>Emergencias · 911</a>
+          <a href="tel:8009112000"><svg class="i"><use href="#phone"/></svg>Línea de la Vida · 800 911 2000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CIERRE ═══════════════════ -->
+<section class="closing" id="empieza">
+  <div class="closing-panel">
+    <!-- FOTO 11 — img/11-cierre.webp (16:9) -->
+    <figure class="media dark" data-scene="exhale">
+      <img src="img/11-cierre.webp" alt="" loading="lazy" />
+      <figcaption class="ph-tag"><b>Foto 11</b>Deja el celular y exhala, luz de ventana · 16:9</figcaption>
+    </figure>
+    <div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o3"></span><span class="orb o4"></span></div>
+    <div style="position:relative;z-index:3">
+      <h2 class="rv">Cuando estés listo, aquí estamos.</h2>
+      <p class="rv d1">No tienes que tener todo claro. No tienes que estar en crisis. Solo tienes que querer empezar.</p>
+      <div class="btn-row rv d2">
+        <a class="btn btn-light" data-wa="general" data-magnetic href="#"><svg class="i i-wa"><use href="#wa"/></svg>Escríbenos. Solo eso.</a>
+      </div>
+      <p class="small rv d3">Te respondemos por WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="wrap foot">
+    <a href="#inicio" class="logo" aria-label="claritia, Terapia Clínica Online — inicio">
+      <span class="logo-cluster" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span></span>
+      <span><span class="logo-word">claritia</span><span class="logo-tag">Terapia Clínica Online</span></span>
+    </a>
+    <ul class="foot-links">
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="equipo/">Equipo</a></li>
+      <li><a href="#precio">Precio</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a href="privacidad/">Aviso de privacidad</a></li>
+      <li><a href="terminos/">Términos y condiciones</a></li>
+      <li><a data-wa="general" href="#">Contacto</a></li>
+    </ul>
+    <p class="foot-help">¿Emergencia? Llama al <a href="tel:911">911</a>. Apoyo emocional gratuito 24 h: Línea de la Vida <a href="tel:8009112000">800 911 2000</a>.</p>
+    <p class="foot-copy">© <span id="year">2026</span> claritia · Terapia Clínica Online · México. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" data-wa="general" href="#" aria-label="Escríbenos por WhatsApp">
+  <svg class="i i-wa"><use href="#wa"/></svg>Escríbenos
+</a>
+
+<script src="assets/claritia.js" defer></script>
+</body>
+</html>
