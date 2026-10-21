@@ -96,7 +96,7 @@ const CONFIG = {
         <div class="qr-wrap">
           <div class="qr-side">
             ${waNumber ? '' : '<span class="qr-badge">QR de ejemplo · falta el número</span>'}
-            <div class="qr-box"><div class="qr-code"></div><span class="qr-logo"><span class="logo-cluster"><span class="c1"></span><span class="c2"></span><span class="c3"></span></span></span></div>
+            <div class="qr-box"><div class="qr-code"></div><span class="qr-logo"><img src="${ROOT}assets/brand/spheres-cluster.webp" alt="" width="38" height="37" /></span></div>
           </div>
           <div class="qr-copy">
             <span class="label" style="margin:0">WhatsApp</span>

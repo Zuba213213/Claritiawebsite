@@ -4,21 +4,22 @@
    Reglas: Marketing Vault 08 (Líneas que No Cruzamos)
    ═════════════════════════════════════════════════════════════ */
 /* ─── FUENTES (autoalojadas, subset latin — cubre á é í ó ú ñ ¿ ¡) ── */
-@font-face { font-family: 'DM Serif Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/dm-serif-display-latin-400-normal.woff2) format('woff2'); }
 @font-face { font-family: 'DM Serif Display'; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/dm-serif-display-latin-400-italic.woff2) format('woff2'); }
 @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 300; font-display: swap; src: url(../fonts/poppins-latin-300-normal.woff2) format('woff2'); }
 @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/poppins-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/poppins-latin-600-normal.woff2) format('woff2'); }
 @font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/poppins-latin-500-normal.woff2) format('woff2'); }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --lav:        #B8B4D4;
+  --lav:        #B5B3D8;   /* esfera candado (logo) */
+  --blue:       #B3D6EA;   /* esfera enfoque (logo) */
   --lav-light:  #D4D1E8;
   --lav-xlight: #ECEAF6;
   --lav-deep:   #534AB7;
   --lav-deeper: #463EA0;
-  --sage:       #8FA89A;
+  --sage:       #A6B5AC;   /* esfera señal (logo) */
   --sage-dark:  #6B8C7D;
   --sage-light: #E6EDE8;
   --purple:     #3D3860;
@@ -51,10 +52,12 @@ img, svg { display: block; }
 a { color: inherit; }
 :focus-visible { outline: 2.5px solid var(--lav-deep); outline-offset: 3px; border-radius: 8px; }
 
-h1, h2, h3, .serif { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; line-height: 1.12; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2.4rem, 5.6vw, 4.4rem); }
-h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
-h3 { font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+/* Títulos en Poppins SemiBold: misma familia geométrica que el logotipo */
+h1, h2, h3 { font-family: 'Poppins', system-ui, sans-serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.025em; }
+.serif { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-weight: 400; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.9rem); }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.55rem); }
+h3 { font-size: clamp(1.05rem, 1.6vw, 1.25rem); }
 p  { font-size: 1rem; color: var(--mid); }
 em.soft { font-style: italic; color: var(--lav-deep); }
 
@@ -280,7 +283,7 @@ em.soft { font-style: italic; color: var(--lav-deep); }
 .ic-cluster .b1 .i { width: 18px; height: 18px; }
 .tile.dark .ic-cluster .b1 { color: var(--white); border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
 .tile.grad .ic-cluster .b1 { color: var(--purple); border-color: rgba(255,255,255,.8); background: rgba(255,255,255,.35); }
-.tile .big { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; color: var(--white); }
+.tile .big { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; color: var(--white); }
 .tile .ghost-orb { position: absolute; width: 160px; height: 160px; right: -50px; bottom: -60px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
 .pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.8rem; }
 .pill { padding: .45rem 1rem; border-radius: 100px; background: var(--lav-xlight); font-size: .82rem; font-weight: 500; color: var(--lav-deep); }
@@ -309,7 +312,7 @@ em.soft { font-style: italic; color: var(--lav-deep); }
 .ctx > * { position: relative; z-index: 1; }
 .ctx:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
 .ctx:hover::before { opacity: .22; }
-.ctx .num { font-family: 'DM Serif Display', serif; font-size: .95rem; color: var(--lav); margin-bottom: 1.4rem; display: block; }
+.ctx .num { font-family: 'Poppins', sans-serif; font-weight: 500; letter-spacing: .08em; font-size: .95rem; color: var(--lav); margin-bottom: 1.4rem; display: block; }
 .ctx h3 { font-size: 1.15rem; color: var(--purple); margin-bottom: .45rem; }
 .ctx p { font-size: .88rem; line-height: 1.6; }
 .contexts-foot { margin-top: 2rem; text-align: center; font-size: .95rem; }
@@ -334,7 +337,7 @@ em.soft { font-style: italic; color: var(--lav-deep); }
 .step:nth-child(2) { background: var(--grad); }
 .step:nth-child(3) { background: var(--grad-dark); }
 .step-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-.step-num { font-family: 'DM Serif Display', serif; font-size: clamp(3.5rem, 7vw, 5.5rem); line-height: .85; color: rgba(83,74,183,.25); }
+.step-num { font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: -0.04em; font-size: clamp(3.5rem, 7vw, 5.5rem); line-height: .85; color: rgba(83,74,183,.25); }
 .step:nth-child(2) .step-num { color: rgba(255,255,255,.6); }
 .step:nth-child(3) .step-num { color: rgba(255,255,255,.25); }
 .step-badge { display: inline-flex; align-items: center; gap: .4rem; font-size: .75rem; font-weight: 500; padding: .4rem .8rem; border-radius: 100px; background: rgba(255,255,255,.7); color: var(--purple); }
@@ -378,7 +381,7 @@ em.soft { font-style: italic; color: var(--lav-deep); }
 }
 .price-inner { background: var(--white); border-radius: calc(var(--radius-lg) - 2px); padding: clamp(1.8rem, 4vw, 2.8rem); position: relative; overflow: hidden; }
 .price-kicker { font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--sage-dark); }
-.price-amount { font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 6vw, 4rem); line-height: 1; color: var(--purple); margin: .9rem 0 .3rem; }
+.price-amount { font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: -0.03em; font-size: clamp(2.6rem, 6vw, 4rem); line-height: 1; color: var(--purple); margin: .9rem 0 .3rem; }
 .price-amount small { font-family: 'Poppins', sans-serif; font-size: .95rem; color: var(--mid); font-weight: 400; margin-left: .3rem; }
 .price-amount.ask { font-size: clamp(1.7rem, 3.6vw, 2.3rem); line-height: 1.2; }
 .price-note { font-size: .9rem; margin-bottom: 1.6rem; }
@@ -623,7 +626,7 @@ footer { padding: 3rem 0 6rem; }
 /* ─── FUNDADORA ─────────────────────────────────────────────── */
 .founder { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
 .founder .media { --ar: 4 / 5; border-radius: var(--radius-lg); }
-.founder blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.25; color: var(--purple); margin-bottom: 1.4rem; }
+.founder blockquote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.25; color: var(--purple); margin-bottom: 1.4rem; }
 .founder .sig { font-size: .95rem; color: var(--mid); }
 .founder .sig b { font-weight: 500; color: var(--charcoal); display: block; }
 .pending { background: repeating-linear-gradient(135deg, rgba(83,74,183,.06) 0 8px, transparent 8px 16px); border-radius: 8px; outline: 1px dashed rgba(83,74,183,.45); outline-offset: 3px; }
@@ -747,3 +750,17 @@ footer { padding: 3rem 0 6rem; }
 .faq-cta p { font-size: .95rem; }
 .faq-cta .btn .i { width: 18px; height: 18px; }
 .wa-float .fab-label { white-space: nowrap; }
+
+/* ─── LOGO OFICIAL Y ESFERAS (assets/brand) ─────────────────── */
+.logo { display: inline-flex; align-items: center; }
+.logo-img { height: 42px; width: auto; display: block; }
+.nav.scrolled .logo-img { height: 38px; }
+footer .logo-img { height: 46px; }
+@media (max-width: 560px) { .logo-img, .nav.scrolled .logo-img { height: 32px; } footer .logo-img { height: 38px; } }
+.nav .logo-img { transition: height .3s; }
+.chat-avatar { background: var(--white); }
+.chat-avatar img { width: 26px; height: auto; display: block; }
+.hero-visual .chat-avatar img { width: 21px; }
+.quote-spheres { width: 72px; height: auto; display: block; }
+.tile-sphere { width: 52px; height: 52px; display: block; }
+.qr-box .qr-logo img { width: 38px; height: auto; display: block; }
