@@ -26,4 +26,16 @@ Formato: **WebP**, sRGB, calidad ~80. Lado largo 1600–2000 px. Idealmente < 25
 La Foto 02 (hero alterno) se guarda para la prueba A/B; la Foto 12 (vista previa al compartir)
 reemplaza a `assets/og-claritia.jpg` (1200×630 px, < 300 KB para que WhatsApp la muestre).
 
-Videos: se suben a YouTube (no listado) y su ID se pega en `CONFIG.videos` dentro de `assets/claritia.js`.
+## Videos (formato vertical 9:16, tipo reel)
+
+Los videos se suben a la carpeta `assets/video/` con estos nombres y aparecen solos en el sitio:
+
+| Archivo | Dónde aparece | Portada (opcional) |
+|---|---|---|
+| `assets/video/que-es-claritia.mp4` ✅ | Bloque "Conoce claritia" (Reel 1) | `img/que-es-claritia.webp` ✅ |
+| `assets/video/v2-como-funciona.mp4` | "Cómo funciona" | `img/v2-como-funciona.webp` |
+| `assets/video/pagar-con-confianza.mp4` ✅ | Junto a Preguntas frecuentes (Reel 2) | `img/pagar-con-confianza.webp` ✅ |
+
+Formato: MP4 (H.264 + AAC), 720 × 1280, "fast start", idealmente 5–10 MB (máximo 25 MB).
+La portada es un cuadro del video en WebP 720 × 1280. Si no hay portada, se usa el primer cuadro.
+Alternativa: subirlo a YouTube como Short no listado y pegar el ID en `CONFIG.videos` (assets/claritia.js).

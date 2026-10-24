@@ -836,3 +836,87 @@ html { scroll-padding-top: calc(var(--nav-h) + 12px); }
    saliendo del borde, para no tapar la cara de la persona */
 .hero-chip { top: -26px; right: -34px; max-width: 200px; }
 @media (max-width: 920px) { .hero-chip { top: -22px; right: -8px; } }
+
+/* ═════════════════════════════════════════════════════════════
+   VIDEOS VERTICALES (reels 9:16)
+   Portada → toque para reproducir con sonido → al terminar, invitación a escribir
+   ═════════════════════════════════════════════════════════════ */
+.media.reel { --ar: 9 / 16; border-radius: 26px; box-shadow: 0 24px 60px rgba(61,56,96,.18); background-color: var(--purple); cursor: pointer; }
+.media.reel > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 3; background: #1f1c33; border-radius: inherit; }
+.media.reel .ph-tag { left: 12px; right: 12px; bottom: auto; top: 12px; }
+.media.reel.has-video .ph-tag, .media.reel.has-video .ph-art { display: none; }
+.reel-play {
+  position: absolute; z-index: 4; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 76px; height: 76px; border-radius: 50%; border: 0; cursor: pointer;
+  background: rgba(255,255,255,.94); color: var(--lav-deep);
+  display: grid; place-items: center; box-shadow: 0 12px 34px rgba(31,28,51,.3);
+  transition: transform .3s var(--ease);
+}
+.reel-play .i { width: 28px; height: 28px; fill: currentColor; stroke: none; margin-left: 5px; }
+.media.reel:hover .reel-play { transform: translate(-50%, -50%) scale(1.07); }
+.reel-dur {
+  position: absolute; z-index: 4; right: 14px; bottom: 14px;
+  font-size: .78rem; font-weight: 500; color: var(--white);
+  background: rgba(31,28,51,.55); padding: .25rem .6rem; border-radius: 100px;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.media.reel.playing .reel-play, .media.reel.playing .reel-dur { display: none; }
+.reel-end {
+  position: absolute; inset: 0; z-index: 5; border-radius: inherit;
+  display: none; flex-direction: column; align-items: center; justify-content: center; gap: .9rem;
+  padding: 1.5rem; text-align: center;
+  background: linear-gradient(180deg, rgba(61,56,96,.55), rgba(61,56,96,.9));
+  color: var(--white);
+}
+.media.reel.ended .reel-end { display: flex; }
+.reel-end p { color: var(--white); font-weight: 500; font-size: 1.05rem; line-height: 1.4; }
+.reel-end .btn { width: 100%; max-width: 260px; }
+.reel-replay { background: none; border: 0; color: rgba(255,255,255,.85); font: inherit; font-size: .88rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Bloque "Conoce claritia" */
+.reel-band { padding-top: clamp(1rem, 4vw, 3rem); }
+.reel-split { display: grid; grid-template-columns: minmax(260px, 360px) 1fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: center; }
+.reel-copy h2 { margin-bottom: 1rem; max-width: 18ch; }
+.reel-copy p { max-width: 34rem; }
+.reel-points { list-style: none; display: grid; gap: .6rem; margin: 1.6rem 0 2rem; }
+.reel-points li { display: flex; gap: .6rem; align-items: center; font-size: .95rem; color: var(--charcoal); }
+.reel-points .i { width: 18px; height: 18px; color: var(--sage-dark); stroke-width: 2.2; }
+.reel-col { width: 100%; }
+.reel-sm { max-width: 280px; }
+.steps-intro .reel-col { margin-top: 2rem; }
+
+/* Preguntas: video a la izquierda (fijo al hacer scroll), preguntas a la derecha */
+.faq-layout { display: grid; grid-template-columns: 300px 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; max-width: 1080px; margin: 0 auto; }
+.faq-aside { position: sticky; top: calc(var(--nav-h) + 1.5rem); }
+.faq-layout .faq, .faq-layout .faq-cta { max-width: none; margin-left: 0; margin-right: 0; }
+.faq-layout .faq-cta { justify-content: flex-start; }
+.reel-caption { margin-top: 1rem; font-size: .9rem; }
+.reel-caption b { font-weight: 500; color: var(--purple); }
+
+@media (max-width: 920px) {
+  .reel-split { grid-template-columns: 1fr; }
+  .reel-split .reel-col { max-width: 340px; margin: 0 auto; }
+  .reel-copy { text-align: center; }
+  .reel-copy h2, .reel-copy p { margin-left: auto; margin-right: auto; }
+  .reel-points { justify-items: center; }
+  .reel-copy .btn-row { justify-content: center; }
+  .faq-layout { grid-template-columns: 1fr; }
+  .faq-aside { position: static; display: grid; justify-items: center; text-align: center; }
+  .faq-aside .reel-col { max-width: 300px; }
+  .steps-intro .reel-col { margin-left: auto; margin-right: auto; }
+}
+.media.reel > video.reel-poster { z-index: 1; pointer-events: none; }
+/* El video nunca ocupa más de ~70% de la pantalla en celular */
+.reel-split .reel-col { max-width: min(360px, calc(72svh * 9 / 16)); }
+@media (max-width: 920px) { .reel-split .reel-col { max-width: min(340px, calc(68svh * 9 / 16)); } }
+/* Columna fija de "Cómo funciona": video más compacto para que quepa completa en pantalla */
+.steps-intro { top: calc(var(--nav-h) + 1.5rem); }
+.steps-intro .reel-col { max-width: min(210px, calc((100svh - var(--nav-h) - 26rem) * 9 / 16)); min-width: 160px; margin-top: 1.6rem; }
+.faq-aside .reel-col { max-width: min(280px, calc((100svh - var(--nav-h) - 8rem) * 9 / 16)); }
+/* Pantallas bajas (laptops pequeñas): la columna deja de ser fija para que el video nunca quede cortado */
+@media (max-height: 820px) { .steps-intro { position: static; } }
+@media (max-height: 760px) { .faq-aside { position: static; } }
+@media (max-width: 920px) { .reel-split .reel-copy { order: -1; } }
+/* Botón de play en el tercio inferior: no tapa los títulos que vienen en el video */
+.media.reel .reel-play { top: auto; bottom: 16%; transform: translateX(-50%); }
+.media.reel:hover .reel-play { transform: translateX(-50%) scale(1.07); }

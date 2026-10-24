@@ -189,6 +189,58 @@ const CONFIG = {
     });
   });
 
+  /* ── Videos verticales (reels) ──
+     El archivo va en assets/video/<nombre>.mp4. Si existe, se reproduce aquí mismo (sin marcas de YouTube).
+     Si no existe pero hay un ID de YouTube en CONFIG.videos, se usa YouTube. Si no hay nada, queda el placeholder. */
+  const reels = [...document.querySelectorAll('.media.reel')];
+  const stopOthers = except => reels.forEach(r => { if (r !== except) { const v = r.querySelector('video'); if (v && !v.paused) v.pause(); } });
+  reels.forEach(fig => {
+    const name = fig.dataset.reel;
+    const src = `${ROOT}assets/video/${name}.mp4`;
+    const yt = CONFIG.videos[fig.dataset.video];
+    let mode = null;
+    fetch(src, { method: 'HEAD' }).then(r => { if (r.ok) { mode = 'file'; fig.classList.add('has-video');
+        // sin portada: mostrar el primer cuadro del video como portada
+        if (!fig.querySelector(':scope > img')) { const pv = document.createElement('video'); pv.muted = true; pv.preload = 'metadata'; pv.src = src + '#t=0.5'; pv.className = 'reel-poster'; pv.setAttribute('aria-hidden', 'true'); fig.prepend(pv); } } else if (yt) { mode = 'yt'; fig.classList.add('has-video'); } })
+      .catch(() => { if (yt) { mode = 'yt'; fig.classList.add('has-video'); } });
+    const endHTML = `<div class="reel-end"><p>¿Quieres dar el primer paso?</p>
+      <a class="btn btn-light" data-wa="talk" href="#"><svg class="i i-wa"><use href="#wa"/></svg>Habla con alguien</a>
+      <button class="reel-replay" type="button">Ver de nuevo</button></div>`;
+    const play = () => {
+      if (!mode) {                       // aún no hay video: avisar con el placeholder
+        const tag = fig.querySelector('.ph-tag');
+        if (tag) tag.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.06)' }, { transform: 'scale(1)' }], { duration: 450 });
+        return;
+      }
+      if (mode === 'yt') {
+        if (!fig.querySelector('iframe')) {
+          fig.classList.add('playing');
+          fig.insertAdjacentHTML('beforeend', `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(yt)}?autoplay=1&rel=0&playsinline=1" title="${esc(fig.dataset.title)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="z-index:3;border-radius:inherit"></iframe>`);
+        }
+        return;
+      }
+      let v = fig.querySelector('video');
+      if (!v) {
+        v = document.createElement('video');
+        v.src = src; v.playsInline = true; v.controls = true; v.preload = 'auto';
+        v.setAttribute('playsinline', ''); v.setAttribute('aria-label', fig.dataset.title);
+        const poster = fig.querySelector(':scope > img'); if (poster) v.poster = poster.src;
+        fig.appendChild(v);
+        fig.insertAdjacentHTML('beforeend', endHTML);
+        wireWA(fig);
+        fig.querySelector('.reel-replay').addEventListener('click', e => { e.stopPropagation(); fig.classList.remove('ended'); v.currentTime = 0; v.play(); });
+        v.addEventListener('ended', () => { fig.classList.add('ended'); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); });
+        v.addEventListener('play', () => { fig.classList.add('playing'); fig.classList.remove('ended'); stopOthers(fig); });
+        // si sale de la pantalla, se pausa
+        new IntersectionObserver(es => { if (!es[0].isIntersecting && !v.paused) v.pause(); }, { threshold: 0.25 }).observe(fig);
+      }
+      fig.classList.add('playing');
+      v.play().catch(() => {});
+    };
+    fig.querySelector('.reel-play').addEventListener('click', e => { e.stopPropagation(); play(); });
+    fig.addEventListener('click', e => { if (!fig.classList.contains('playing') && !e.target.closest('.reel-end')) play(); });
+  });
+
   /* ── Equipo (inicio: vista previa · /equipo: todo + filtros) ── */
   const ph = (val, label) => val ? esc(val) : `<span class="pending">[${label}]</span>`;
   const teamCard = m => `
