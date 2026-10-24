@@ -8,7 +8,7 @@ const CONFIG = {
   whatsapp: "",
 
   // Precio por sesión en pesos. Vacío = placeholder "$XXX MXN · Precio pendiente"
-  price: "",                 // ej. "$450"
+  price: "$299",
   priceUnit: "MXN por sesión",
   priceNote: "Sin costos ocultos. Pagas por sesión.",
 
@@ -21,17 +21,19 @@ const CONFIG = {
     start:    "Hola, quiero dar el primer paso.",                 // Cómo funciona
     book:     "Hola, me gustaría agendar mi primera sesión.",     // Botón flotante
     team:     "Hola, me gustaría agendar una sesión con alguien del equipo.", // Botón flotante en la sección de equipo
-    price:    "Hola, me gustaría saber el precio de las sesiones.",// Precio: "Preguntar por WhatsApp"
+    price:    "Hola, vi que la sesión cuesta $299 MXN y me gustaría agendar.",// Precio: "Preguntar por WhatsApp"
     question: "Hola, tengo una pregunta antes de empezar.",       // Preguntas frecuentes
     unsure:   "Hola, no sé bien por dónde empezar.",              // "Cuéntanos con tus palabras"
-    choose:   "Hola, no sé a quién elegir. ¿Me orientan?"         // Página de equipo: "Ayúdame a elegir"
+    choose:   "Hola, no sé a quién elegir. ¿Me orientan?",        // (sin uso por ahora)
+    join:     "Hola, soy psicóloga/o con cédula profesional y me interesa unirme al equipo de claritia."  // Página "Únete al equipo"
   },
 
   // Videos explicativos: ID de YouTube (lo que va después de "v=" en el enlace). Vacío = placeholder.
   videos: {
     queEs: "",               // Video 1 — ¿Qué es claritia?
     comoFunciona: "",        // Video 2 — Cómo funciona por WhatsApp
-    primeraSesion: ""        // Video 3 — Tu primera sesión
+    primeraSesion: "",       // Video 3 — Tu primera sesión
+    unete: ""                // Reel de reclutamiento (página Únete al equipo)
   },
 
   // Equipo clínico. Las fotos van en img/equipo/<slug>.webp (4:5).
@@ -329,7 +331,7 @@ const CONFIG = {
   // Nav + botón flotante
   const nav = document.getElementById('nav');
   const fab = document.getElementById('wa-float');
-  const hero = document.querySelector('.hero-panel, .page-hero');
+  const hero = document.querySelector('.hero-panel, .page-hero, .recruit-hero');
   const fabLabel = fab && fab.querySelector('.fab-label');
   const fabDefault = fab ? { label: fabLabel ? fabLabel.textContent : '', key: fab.dataset.wa } : null;
   const fabZones = [...document.querySelectorAll('[data-fab], [data-fab-label]')];
@@ -373,7 +375,7 @@ const CONFIG = {
     menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); toggle.focus(); } });
     document.addEventListener('click', e => { if (!menu.hidden && !e.target.closest('#nav')) setMenu(false); });
-    window.matchMedia('(min-width: 1200px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
   }
 
   /* ── Sección actual resaltada en el menú ── */

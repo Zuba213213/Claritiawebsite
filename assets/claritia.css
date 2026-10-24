@@ -756,7 +756,7 @@ footer .logo-img { height: 46px; }
    NAVEGACIÓN v4 — barra sólida de altura fija, menú en tablet/celular
    ═════════════════════════════════════════════════════════════ */
 :root { --nav-h: 78px; }
-@media (max-width: 1199px) { :root { --nav-h: 70px; } }
+@media (max-width: 1279px) { :root { --nav-h: 70px; } }
 @media (max-width: 560px)  { :root { --nav-h: 62px; } }
 
 .skip { position: absolute; left: -9999px; top: 10px; z-index: 100; background: var(--white); color: var(--purple); padding: .6rem 1rem; border-radius: 10px; box-shadow: var(--shadow); font-weight: 500; }
@@ -814,13 +814,13 @@ footer .logo-img { height: 46px; }
 .nav-menu > .btn { display: flex; width: 100%; max-width: 1200px; margin: 1.1rem auto 0; }
 
 /* Tablet y celular: enlaces en el menú */
-@media (max-width: 1199px) {
+@media (max-width: 1279px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .nav-actions { margin-left: auto; }
   .nav .logo-img { height: 34px; }
 }
-@media (min-width: 1200px) { .nav-menu { display: none !important; } }
+@media (min-width: 1280px) { .nav-menu { display: none !important; } }
 @media (max-width: 560px) {
   .nav .logo-img { height: 28px; }
   .nav-cta { width: 44px; height: 44px; padding: 0; }
@@ -920,3 +920,33 @@ html { scroll-padding-top: calc(var(--nav-h) + 12px); }
 /* Botón de play en el tercio inferior: no tapa los títulos que vienen en el video */
 .media.reel .reel-play { top: auto; bottom: 16%; transform: translateX(-50%); }
 .media.reel:hover .reel-play { transform: translateX(-50%) scale(1.07); }
+
+/* Barra de escritorio con 6 enlaces: un poco más ancha que el contenido y más compacta */
+.nav .wrap.nav-bar { max-width: 1360px; gap: 1rem; }
+@media (min-width: 1280px) {
+  .nav .logo-img { height: 34px; }
+  .nav-links { gap: 0; }
+  .nav-links a { padding: .5rem .62rem; font-size: .875rem; }
+}
+@media (min-width: 1440px) { .nav-links a { padding: .5rem .8rem; } .nav .logo-img { height: 36px; } }
+
+/* ─── ÚNETE AL EQUIPO (reclutamiento) ───────────────────────── */
+.recruit-hero { padding-top: calc(var(--nav-h) + 2.5rem); }
+.recruit-hero h1 { color: var(--purple); font-size: clamp(2.1rem, 4.6vw, 3.5rem); margin-bottom: 1.1rem; max-width: 16ch; }
+.recruit-hero .crumbs { margin-bottom: 1rem; }
+.recruit-note { margin-top: 1rem; font-size: .88rem; }
+.recruit-benefits .tile-sphere { width: 44px; height: 44px; margin-bottom: 1.1rem; }
+.recruit-benefits .num { font-size: 1.6rem; font-weight: 600; color: var(--lav-deep); margin-bottom: .9rem; }
+@media (max-width: 920px) { .recruit-hero h1 { margin-left: auto; margin-right: auto; } }
+.price-amount small { letter-spacing: 0; font-weight: 400; }
+/* Únete al equipo en celular: título → reel → texto y botones (el reel arriba del embudo) */
+@media (max-width: 920px) {
+  .recruit-hero .reel-split { gap: 1.25rem; }
+  .recruit-hero .reel-copy { display: contents; }
+  .recruit-hero .reel-copy > * { order: 3; text-align: center; margin-left: auto; margin-right: auto; }
+  .recruit-hero .reel-copy > .crumbs, .recruit-hero .reel-copy > .label, .recruit-hero .reel-copy > h1 { order: 1; }
+  .recruit-hero .reel-copy > .label { justify-content: center; }
+  .recruit-hero .reel-copy > h1 { margin-bottom: .5rem; }
+  .recruit-hero .reel-col { order: 2; }
+  .recruit-hero .btn-row { justify-content: center; }
+}
